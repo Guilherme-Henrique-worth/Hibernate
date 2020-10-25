@@ -41,7 +41,12 @@ public class Livros {
     @Column(name="Autor", length=100, nullable=false)
        public int autor;
     
-    public int getIsbn() {
+    @OneToOne(cascade = javax.persistence.CascadeType.ALL)
+    @JoinColumn(name = "IDFK_Codigo", referencedColumnName = "codigo")
+       public Editora Editora = new Editora();
+               
+     
+     public int getIsbn() {
         return Isbn;
     }
 
